@@ -1,0 +1,258 @@
+PathPal: A Smart Cane for the Visually Impaired
+
+PathPal is an innovative, cost-effective smart cane designed to enhance the independence, safety, and confidence of visually impaired individuals. The device comprises two primary modules:
+
+    1. Vision Module:
+    A camera-equipped module mounted on a chest belt that captures real-time visual data of the surroundings. This module is powered by a microcontroller - NVDIA Jetson Nano, enabling advanced image processing for obstacle detection, object recognition, and road navigation.
+
+    2. Gripper Module:
+    An attachment to the cane with a 3x3 grid of coin vibrators that provides tactile feedback to the user. This module, controlled by an ESP32 microcontroller on a custom PCB, communicates wirelessly with the vision module via Wi-Fi. It serves as the primary interface for the user, offering intuitive haptic cues for navigation and object interaction.
+
+Key Features:
+
+    1. Obstacle Detection Mode:
+    PathPal uses MiDaS to generate depth maps from the camera's real-time images. A known object placed near the camera serves as a reference for linear interpolation to calculate distances. The image is divided into a 3x3 grid, and obstacles detected within a predefined threshold activate the corresponding coin vibrator, guiding the user to avoid collisions.
+
+    2. Grocery Picking Mode:
+    Using a YOLOv8-based object detection model, PathPal identifies and highlights groceries in the camera's field of view. Mediapipe is employed to track the user's hand position. The relative location of the desired grocery item, inputted via a voice command, is conveyed through the vibrators, enabling precise hand guidance for picking objects.
+
+    3. Road Navigation Mode:
+    PathPal uses OpenCV-based image processing techniques to identify road lanes and determine turns or directional changes. The system communicates these directions through the gripper module, ensuring safer outdoor navigation.
+
+Unique Innovations:
+
+    1. Haptic Feedback for Intuitive Guidance:
+    The 3x3 grid of coin vibrators offers detailed tactile cues, enhancing the user's spatial awareness without relying on auditory feedback, which might be distracting in noisy environments.
+
+    2. Depth Mapping for Accurate Obstacle Detection:
+    MiDaS-based depth mapping provides a more advanced and scalable solution than traditional ultrasonic sensors.
+
+    3. Wireless Modular Design:
+    The ESP32-powered gripper module communicates seamlessly with the vision module, offering flexibility in hardware placement and system expansion.
+
+    4. Multifunctionality:
+    PathPal integrates three distinct modes—obstacle detection, grocery picking, and road navigation—into a single device, making it a comprehensive mobility aid.
+
+Impact:
+
+PathPal empowers visually impaired individuals by providing enhanced situational awareness and enabling independent navigation. Its innovative features address the limitations of traditional canes and existing smart sticks by offering precise haptic feedback, advanced obstacle detection, and task-specific functionalities like grocery picking and road navigation.
+
+Affordability and Accessibility:
+
+Designed with low-cost components and a focus on energy efficiency, PathPal aims to be an affordable solution for visually impaired individuals, especially in resource-constrained settings. The modular design also allows for easy customization and scalability.
+
+Conclusion:
+
+PathPal is a transformative assistive device that bridges the gap between technology and accessibility. By leveraging cutting-edge AI, embedded systems, and haptic feedback, it provides a holistic solution to the challenges faced by visually impaired individuals, paving the way for a more inclusive and independent future
+
+
+For detailed information regarding project Pathpal, refer to this presentation - https://www.canva.com/design/DAGP_rd6-qU/7QzzwL4nMHENNK793dotaA/edit?utm_content=DAGP_rd6-qU&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
+
+
+
+----------------------------------
+
+
+
+Assistive Technology, Smart Cane, Visually Impaired, Obstacle Detection, Haptic Feedback, Depth Mapping, Object Detection, Grocery Picking, Road Navigation, ESP32, YOLOv8, MiDaS, Embedded Systems, Image Processing, Tactile Interface, Accessibility, IoT for Assistive Devices, Human-Computer Interaction, Wearable Technology, Affordable Innovation
+
+
+
+-----------------------------------
+
+
+
+1. Haptic Feedback Grid: A 3x3 grid of coin vibrators delivers spatially precise tactile cues, enabling intuitive understanding of surroundings without relying on auditory feedback, which can be affected by environmental noise.
+
+2. Depth Mapping with MiDaS: Unlike conventional ultrasonic sensors or LIDAR, PathPal uses AI-based depth mapping to detect obstacles with higher accuracy and spatial resolution. This cuts down the cost of the model making it more affordable.
+
+3. Grocery Picking Mode: Integration of YOLOv8 for object detection and Mediapipe for hand tracking offers a novel approach to guiding users in real-world tasks, like locating and picking groceries independently.
+
+4. Road Navigation with Image Processing: Advanced computer vision techniques identify road lanes and directional turns, extending the cane's functionality to outdoor navigation.
+
+5. Modular and Wireless Design: The separation of the vision module and gripper module, connected via Wi-Fi, ensures flexibility, portability, and ease of integration with other assistive technologies.
+
+6. Software Oriented advantages: As our project relies heavily on software rather than hardware it offers the following advantages-
+(i) Expandable Functionality: Easily add new modes and features via software updates without modifying hardware.
+(ii) Remote Updates: Seamless over-the-air updates ensure the device stays current and reduces maintenance effort.
+(iii) Customization: Settings like sensitivity, vibration intensity, or voice assistance can be tailored to individual user needs.
+(iv) Future Compatibility: Easily integrates advanced AI models or additional features as technology evolves.
+(v) Cost-Effective Scalability: Reduces the need for hardware changes, keeping production and upgrade costs low.
+
+
+----------------------------------
+
+independent mobility is a significant challenge. Visually impaired individuals often rely on canes, guide dogs or assistance to navigate safely. Inconsistent or inaccessible infrastructure such as a poorly marked paths, obstructed walkways and noise in the sorroundings further complicates navigation.
+
+The primary problem addressed by PathPal is the lack of an affordable, versatile, and user-friendly assistive device that empowers visually impaired individuals to navigate independently and perform daily activities with confidence and safety.
+
+Visually impaired individuals face significant challenges in mobility, object identification, and environmental awareness, which limit their independence and quality of life. Current solutions, such as traditional white canes and even some smart canes, are often limited in functionality, expensive, or poorly adapted to real-world scenarios.
+
+Key Challenges Addressed:
+
+    1. Obstacle Detection and Depth Perception:
+    Traditional assistive tools, like white canes, can only detect obstacles within close proximity and lack the ability to provide detailed spatial information. In case of suspended objects, it is simply helpless and can lead to serious injuries. This limitation increases the risk of collisions with objects, especially in unfamiliar or cluttered environments. PathPal uses AI-driven depth mapping (MiDaS) to provide accurate obstacle detection and spatial awareness, enhancing the user's ability to navigate safely in complex environments.
+
+    2. Limited Feedback Mechanisms:
+    Many assistive devices rely on auditory alerts, which can be challenging in noisy environments or overwhelming for users. Moreover, individuals who are visually impaired often rely heavily on sound cues to understand their surroundings, and excessive auditory feedback can interfere with this natural process. PathPal addresses these issues by employing a 3x3 haptic feedback grid, offering spatially precise tactile cues that communicate obstacle positions intuitively without relying on sound, ensuring the user's auditory perception remains undisturbed
+
+    3. Task-Specific Guidance:
+    Performing everyday tasks, such as grocery shopping, can be difficult for visually impaired individuals due to the lack of targeted guidance for object identification and retrieval. PathPal introduces a unique grocery-picking mode, utilizing object detection (YOLOv8) and hand tracking (MediaPipe) to guide users toward specific items through haptic feedback.
+
+    4. Road Navigation and Outdoor Mobility:
+    Navigating roads, particularly identifying lanes and turns, poses a major challenge. Current solutions often lack robust outdoor navigation capabilities. PathPal uses image processing algorithms to detect road lanes and directional cues, enabling users to navigate roads safely and independently.
+
+    5. Accessibility and Affordability:
+    Advanced assistive technologies, such as wearable vision systems, are often prohibitively expensive and inaccessible to the majority of visually impaired individuals. PathPal is designed to be cost-effective without compromising on advanced functionality, ensuring affordability for users across different socioeconomic backgrounds.
+
+    6. Inflexibility in Existing Devices:
+    Most assistive devices offer fixed functionalities, making them less adaptable to diverse user needs. PathPal’s software-oriented architecture allows for seamless addition of new modes and functionalities through software updates, ensuring the device remains versatile and future-proof.
+
+How PathPal Addresses These Challenges:
+
+    1. Multifunctional Design:
+    PathPal combines three key modes—obstacle detection, grocery picking, and road navigation—into a single device, offering comprehensive assistance for both indoor and outdoor activities.
+
+    2. Advanced Sensing and Processing:
+    The vision module, equipped with a camera and advanced AI algorithms, processes real-time visual data to generate depth maps, detect objects, and analyze road features. This ensures accurate and context-sensitive guidance.
+
+    3. Intuitive Feedback Mechanism:
+    The 3x3 grid of coin vibrators provides localized haptic feedback, enabling users to intuitively understand their surroundings and interact with objects.
+
+    4. Modular and Wireless Communication:
+    PathPal’s gripper and vision modules communicate wirelessly via Wi-Fi, ensuring flexibility, ease of use, and integration with other devices.
+
+    5. Software-Driven Adaptability:
+    PathPal’s reliance on AI models and software processing makes it highly adaptable. Features can be updated or expanded over time to incorporate emerging technologies, making it a scalable solution.
+
+    6. Cost-Effectiveness:
+    By using affordable components like ESP32 and leveraging efficient software-based solutions, PathPal balances high functionality with low production costs, ensuring accessibility to a broader user base.
+
+Impact:
+
+PathPal addresses critical mobility and independence challenges faced by visually impaired individuals. By combining obstacle detection, object identification, and road navigation into an affordable and versatile device, PathPal empowers users to lead safer, more independent lives. Its innovative features, intuitive feedback system, and adaptability to future needs make it a transformative solution in the field of assistive technology
+
+------------------------------
+
+
+
+We have chosen 5 patents which are closest to our innovation and compared them with ours
+
+1.
+PUBLICATION NO. : IN202311008356A
+TITLE           : A Novel Stick For Blind With Safety Alerts
+AUTHOR          : LOVELY PROFESSIONAL UNIVERSITY | DELHI JALANDHAR GT ROAD PHAGWARA- 144411
+ASSIGNEE        : Lovely Professional University
+PRIORITY DATE   : 09 Feb, 2023
+
+DESCRIPTION     : The smart stick for visually impaired individuals enhances navigation and safety by integrating various technologies. It includes ultrasonic and water sensors to detect obstacles, a GPS module for navigation, voice recognition for user interaction, LED lights for visibility, and a gas sensor for environmental safety. A control unit and battery power the system, enabling features like destination setting and turn-by-turn guidance through audio or tactile feedback. This device aims to provide blind individuals with greater independence, confidence, and safety during their travels.
+
+DIFFERENTIATION : PathPal introduces features not present in the given patent, including a haptic feedback gripper module with a 3x3 grid of coin vibrators, depth mapping using MiDaS for obstacle detection, a grocery picking mode with object detection and hand tracking, road navigation using image processing, and wireless communication between modules via an ESP32 and custom PCB. These innovations provide advanced functionality and modularity, setting PathPal apart from the described smart stick.
+
+
+2.
+PUBLICATION NO. : IN202311040659A
+TITLE           : AI-ENHANCED NAVIGATION SYSTEM FOR THE VISUALLY IMPAIRED: THE SMART BACKPACK SOLUTION
+AUTHOR          : RAVINDRA KUMAR KUSHWAHA | GANESH MISHRA | DR K PRASANNA KUMAR | DR BHARATHA BABU K | DR AMIYA KUMAR SAHOO | DR SAROJ KUMAR NANDA | DR SRINIVAS AMBALA | DR MOHD ASHRA
+ASSIGNEE        : DR SAROJ KUMAR NANDA | DR AMIYA KUMAR SAHOO | DR MOHD ASHRAF | DR BHARATHA BABU K | GANESH MISHRA | RAVINDRA KUMAR KUSHWAHA | DR K PRASANNA KUMAR | DR SRINIVAS AMBALA
+PRIORITY DATE   : 14 Jun, 2023
+
+DESCRIPTION     : The technology described in the paper uses a smart backpack equipped with AI-driven systems, including sensors (ultrasonic, infrared, and LiDAR) and cameras, to detect and interpret the user's surroundings. AI algorithms process this sensory data in real-time to identify obstacles and provide audio feedback, helping visually impaired individuals navigate safely. This wearable system enhances mobility by offering immediate environmental awareness and guidance.
+
+DIFFERENTIATION : This system provides audio guidance along with directional vibrations (right and left) through a headband to assist users. In contrast, our system employs a 3x3 vibrator array to deliver more precise and localized guidance. Additionally, while their system utilizes depth imaging sensors and RGB cameras for obstacle detection, our approach leverages a single monocular vision camera. This camera is integrated with AI models to generate depth maps and segmentation, enabling the system to differentiate roads from obstacles effectively. Furthermore, our system includes a unique feature for grocery picking, which is not present in their model.
+
+
+3.
+PUBLICATION NO. : IN202441063678A
+TITLE           : BLIND STICKS USING AI TECHNOLOGY
+AUTHOR          : VYSHALI RAO K P | DR MANOJ CHALLA | DR SHANTHI M B | DR SWATHI Y | DR DANTHULURI SUDHA
+ASSIGNEE        : CMR INSTITUTE OF TECHNOLOGY | DR SWATHI Y | VYSHALI RAO K P | DR DANTHULURI SUDHA | DR SHANTHI M B | DR MANOJ CHALLA
+PRIORITY DATE   : 23 Aug, 2024
+
+DESCRIPTION     : enhance navigation and safety. It incorporates LiDAR sensors for detailed 3D environmental mapping and real-time obstacle detection, supported by AI-powered object recognition and on-device Edge AI processing for low-latency feedback. The cane provides multimodal feedback through haptic vibrations and bone-conduction audio signals, delivering intuitive guidance. IoT connectivity enables integration with smart city infrastructure, such as traffic signals and public transport, while energy-efficient technologies, including kinetic and solar energy harvesting, ensure continuous operation. Personalization is achieved through machine learning, adapting to user preferences and routines for customized support. Voice assistant integration allows for seamless interaction, and cloud connectivity ensures ongoing updates and improvements to the AI functionalities. Additionally, the cane includes health monitoring sensors to track vital signs and alert emergency contacts if anomalies are detected. Its ergonomic, adjustable design features obstacle and elevation detection sensors, a built-in speaker, and a streamlined control panel, making it user-friendly and stylish.
+
+DIFFERENTIATION : Our system incorporates a 3x3 grid of vibrators, which deliver real-time haptic feedback, with each vibrator indicating a specific direction to guide the user. Additionally, a grocery-picking mode allows the user to speak the name of a desired item into a microphone. The system leverages the Google API to process the spoken input and direct the user to the precise location of the item, enhancing both navigation and the ability to pick items in a store. Our model is not an entire smart cane but a gripper that can be attached to any white cane.
+
+
+4.
+PUBLICATION NO. : IN202421088434A
+TITLE           : AI-DRIVEN VOICE-CONTROLLED MOBILITY ASSISTANCE DEVICE FOR VISUALLY IMPAIRED INDIVIDUALS WITH OBSTACLE DETECTION
+AUTHOR          : MRS JAYAMALA D PAKHARE | MR SHRENIK R PATIL | MISS SAMRUDDHI S DESAI | MISS SAKSHI S CHOUGULE | MISS MAITHILI V CHOUGULE
+ASSIGNEE        : DKTE SOCIETY’S TEXTILE AND ENGINEERING INSTITUTE | MISS SAMRUDDHI S DESAI | MR SHRENIK R PATIL | MISS SAKSHI S CHOUGULE | MRS JAYAMALA D PAKHARE | MISS MAITHILI V CHOUGULE
+PRIORITY DATE   : 15th Nov, 2024
+
+DESCRIPTION     : This patent describes an AI-driven, voice-controlled mobility aid for visually impaired individuals. It features a voice-command interface, ultrasonic sensors, and a camera with AI object recognition for navigation and obstacle detection. GPS provides location tracking and auditory navigational feedback, while a haptic system offers vibration alerts for obstacles in noisy environments. The device integrates data seamlessly through a processing unit, ensuring real-time feedback. Lightweight, wearable, and battery-powered, it enhances independence and mobility with multi-sensory feedback in various settings.
+
+DIFFERENTIATION : While the patent relies on ultrasonic sensors and AI-powered object recognition for obstacle detection, PathPal employs MiDaS-based depth mapping for precise distance measurement and detection of elevated obstacles. Unlike the patent's auditory and basic haptic feedback, PathPal features a 3x3 haptic grid, delivering detailed tactile cues for real-time guidance. Additionally, PathPal includes a unique grocery-picking mode that uses voice commands, object detection, and hand tracking, a feature absent in the patent. It also supports road navigation via image processing and modular wireless communication with ESP32 and a custom PCB, enabling flexibility.
+
+
+5.
+PUBLICATION NO. : KR20240132731A
+TITLE           : Indoor route guidance device for the visually impaired
+AUTHOR          : JEON TAE IN | 전태인 | KIM TAE UK | 김태욱 | KIM MIN SEO | 김민서 | NAM HYO JEONG | 남효정 |
+ASSIGNEE        : NATIONAL KOREA MARITIME & OCEAN UNIVERSITY R&DB FOUNDATION
+PRIORITY DATE   : 27 Feb, 2023
+
+DESCRIPTION     : This technology is an indoor navigation system designed for visually impaired individuals. It uses Wi-Fi signals from multiple access points to estimate the user's location and provides voice-guided directions to navigate from their current position to a destination. The system includes components for voice input, location estimation, route setting, and audio guidance, ensuring users can move safely and independently in indoor environments where GPS signals are weak or unavailable.
+
+DIFFERENTIATION : Their system guides users through voice commands and utilizes Wi-Fi signals from multiple access points for navigation. In contrast, our system provides guidance through a 3x3 array of coin vibrators, delivering tactile feedback for enhanced precision. While their system focuses primarily on navigation, our system is designed for obstacle detection and includes an additional feature for grocery picking, addressing broader user needs.
+
+----------------------------------
+
+The proposed outcome of PathPal is to significantly enhance the independence, safety, and confidence of visually impaired individuals by providing a multifunctional, intuitive, and affordable assistive device. By combining advanced technologies like AI-driven depth mapping, object detection, and road navigation with a spatially precise haptic feedback system, PathPal enables users to navigate their environments more safely and efficiently. The device not only assists in obstacle avoidance but also offers practical support for tasks like grocery picking and outdoor mobility, addressing real-world challenges. The software-oriented architecture ensures that PathPal remains adaptable to future advancements and can be customized to meet individual needs. Ultimately, PathPal aims to improve the quality of life for visually impaired individuals, promoting greater autonomy and reducing dependence on others for daily activities, while also making advanced assistive technologies more accessible and affordable to a broader population.
+
+--------------------------------
+
+This project is run by a team of 8 students pursuing BTech in Indian institute of Technology Madras. Details are as follows:
+
+Mohini Katyal- BTech electrical engineering, 3rd year - Strategist
+Bhavesh Suryanarayanan(Coordinator) - BTech electrical engineering, 2nd year - Electronics Engineer
+Kartik Patil - BTech electrical engineering, 2nd year  - Electronics Engineer
+Sripathi Ravi - BTech electrical engineering, 2nd year - Electronics Engineer
+Mayank Sharma - BTech electrical engineering, 2nd year - Software Engineer
+Yagnik - BTech electrical engineering, 2nd year - Software Engineer
+Khyati - BTech Botechnology, 2nd year - Software Engineer
+Rohit K - BTech Mechanical Engineering, 3rd year - Software Engineer
+
+----------------------------------
+
+
+We are currently developing the prototype and here is the estimated cost for it:
+1. AWS for hosting our AI code - 20,000 Rupees
+2. Electronics (PCB, Jetson Nano and other components) - 60,000 Rupees
+3. Hardware(Cane, chest belt and 3d printed Gripper) - 20,000 Rupees
+total - 1 Lakh rupees
+
+----------------------------------
+
+
+Frugal Aspects of Pathpal:
+
+1. Affordable Components:
+    Pathpal uses cost-effective hardware. We are not using expensive sensors like LIDAR which would increase the price of the product. Performing the AI computations on the cloud reduces the need for an expensive edge device.
+
+2. Software-Driven innovation:
+    As pathpal relies heavily on software(computer vision and image processing) instead of expensive hardware solutions, PathPal remains adaptable and can be easily upgraded or expanded. Software updates can add new features without needing to modify the physical device, reducing long-term costs for both the manufacturer and user.
+
+3. Modular and Scalable Design:
+    The modular architecture of PathPal allows it to scale easily without major hardware overhauls. This approach reduces production costs by enabling the reuse of components across different devices and configurations.
+
+4. Low-Cost Power Solutions:
+    PathPal utilizes a lithium-ion battery, which is both cost-effective and reliable for portable devices. The efficient power management allows the device to operate for long periods without increasing cost.
+
+These frugal design decisions ensure that PathPal can be produced and maintained affordably, making it accessible to a larger population of visually impaired individuals, including those from lower-income backgrounds.
+
+
+-----------------------------------
+
+1. Affordability through Frugal Design:
+    PathPal employs cost-effective components, such as the ESP32 microcontroller, ultrasonic sensors, and open-source software, to keep the production costs low. This enables the device to be produced at an affordable price, ensuring it can reach a wider audience, particularly individuals from lower-income backgrounds. By using readily available materials and reducing reliance on expensive technologies, PathPal ensures that its core features are accessible to more people.
+
+2. Scalability and Adaptability:
+    The software-driven nature of PathPal allows for easy updates and feature additions without the need for hardware changes. This ensures that the product can evolve over time without the need for users to purchase new devices, thus creating long-term value. Additionally, the modular design enables the reuse of components, further reducing material wastage.
+
+3. Efficiency of Design:
+    By integrating multiple functionalities—such as obstacle detection, grocery picking assistance, and road navigation—into a single device, PathPal consolidates various tools into one, reducing the need for multiple separate devices. This not only saves material resources but also simplifies the user experience, providing more value with fewer physical components.
+
+4. Ease of Use:
+    PathPal is designed as an easy-to-integrate addition to the commonly used white cane for visually impaired individuals. Along with the haptic feedback provided by the 3x3 grid of vibrators, users can continue to rely on the familiar tactile feedback from the cane, making the transition seamless. This familiar design ensures that the product is intuitive and user-friendly. Additionally, the simple structure of the 3x3 grid of vibrators helps in simplifying the learning process, as users can easily associate specific patterns of vibrations with different obstacles or actions. This simplicity ensures that visually impaired individuals can quickly grasp how to use the device, enhancing their independence and confidence in navigating their surroundings.
