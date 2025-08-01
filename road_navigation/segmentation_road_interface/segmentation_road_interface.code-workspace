@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"name": "segmentation_road_interface",
+			"path": "."
+		},
+		{
+			"name": "segmentation_torch_unet",
+			"path": "../Path_navigation/segmentation_torch_unet"
+		}
+	],
+	"settings": {}
+}
