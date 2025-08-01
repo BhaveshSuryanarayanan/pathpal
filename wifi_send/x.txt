@@ -1,0 +1,78 @@
+About Us
+We are a team of passionate individuals dedicated to solving realworld problems through technology.
+Our motivation stems from a desire to push the boundaries of what is possible in assistive technology
+At PathPal, we are committed to enhancing mobility and independence for visually impaired people, helping them navigate their surroundings with confidence and ease.
+
+Recent data shows that approximately 43 million people worldwide are blind, with around 9 million in India alone. Visually impaired individuals commonly use a white cane to navigate their surroundings by detecting obstacles through touch. 13% of the population who are above the age of 50 are partially or completely vision impaired.
+
+Independent mobility is a significant challenge. Blind individuals often rely on canes, guide dogs, or assistance to navigate safely.
+Inconsistent or inaccessible infrastructure, such as poorly marked paths, obstructed walkways, and lack of audio signals, further complicates navigation.
+
+A normal cane is offset by many means like dashing into objects at some height which can’t be detected by cane which hovers to lower regions.
+The existing cane won   ’t foresee the obstacle which may not be avoided in close range distance.
+There is no help to them in their daily lives like picking groceries.
+
+What are the limitations of the current white cane?
+A traditional white cane can only detect objects below the knees. 
+Suspended objects which are not detected by the cane can lead to serious injuries
+
+MISSION
+To develop innovative and user-friendly technology solutions that enhance the mobility, safety, and independence of visually impaired individuals. This includes obstacle detection for safer navigation and smart assistance for tasks like grocery picking. 
+
+Features offered by the cane:
+1. Obstacle detection: Efficiently identify obstacles and paths in real time
+2. Path navigation: Guiding the user throughout their walk
+3. Grocery picking: Identify groceries on the shelf in front and guide the user to pick the correct one 
+
+Hardware:
+1. Vision module
+2. Gripper module
+
+
+
+
+THe gripper module:
+It has a 3x3 grid of coin vibrator which provides haptic feedback to the user
+Each captured frame is divided into a 3x3 grid. When an object is detected within a specific grid section, the corresponding vibrator for that section is activated.
+This allows precise feedback based on the object's location, guiding the user towards the detected item or indicating the presence of an obstacle.
+
+The vision module:
+The camera and microprocessor(Jetson Nano) is attached to the chest belt of the individual
+We use a monocular camera to capture real-time visual data, which is processed by our custom software on a Jetson Nano microprocessor. 
+Is a compact solution for real time processing for applications such as navigation and obstacle detection
+
+This data is transmitted from Jetson Nano via the MQTT protocol to the ESP32 microcontroller, which controls the vibrators, causing them to activate accordingly.
+
+The Tech:
+1. Obstacle detection:
+Depth map - 
+For calculating the relative distance of the obstacles. 
+We are using a pytorch based pretrained model - MIDAS for this task
+
+Semantic segmentation -
+segment the roads out seperately out of the image
+We are using a custom pytorch model trained with Unet architecture to classify the pixels as road and non-road
+
+The obstacles closer than the threshold, excluding the road is recognized as obstacle
+
+2. Navigation:
+We are using lane detection for detect the direction of the road. 
+An extra pair of vibrators will used to indicate the user of the direction of the road
+
+3. Grocery picking:
+identifying groceries -
+YOLO - another pytorch based model is trained with transfer learning on the specific groceries for this purpose.
+This model classifies the groceries and draws bounding boxes around them
+
+Hand tracking -
+Hand tracking is done through opencv contour detection
+
+Voice input - 
+the desired grocery is taken as voice input from the user. This microphone is fitted in the chest belt as well.
+The voice to text conversion is performed using Google applications
+
+The relative position of the desired grocery from the user's hand is obtained from the above models and the vibrators are activated accordingly to guide the user.
+
+
+        
+

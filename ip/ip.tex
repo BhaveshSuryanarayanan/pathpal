@@ -1,0 +1,51 @@
+\documentclass[a4paper,12pt]{report}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{hyperref}
+
+% Define colors
+\definecolor{primary}{HTML}{1F77B4}
+\definecolor{secondary}{HTML}{FF7F0E}
+
+% Page style
+\pagestyle{fancy}
+%\fancyhf{}latexmk --version
+\fancyhead[L]{\textbf{Your Project Name}}
+\fancyhead[R]{\thepage}
+\fancyfoot[C]{\textbf{Confidential}}
+
+% Section formatting
+\titleformat{\section}[block]{\Large\bfseries\color{primary}}{\thesection}{1em}{}
+\titleformat{\subsection}[block]{\large\bfseries\color{secondary}}{\thesubsection}{1em}{}
+
+\begin{document}
+
+% Cover page
+\begin{titlepage}
+    \centering
+    \vspace*{1cm}
+    {\Huge\bfseries Project Title \par}
+    \vspace{1.5cm}
+    \includegraphics[width=0.4\textwidth]{Pathpal-modified.png}\par
+    \vspace{2cm}
+    {\Large Prepared by: Your Team Name \par}
+    \vfill
+    {\large Date: \today \par}
+\end{titlepage}
+
+% Table of contents
+\tableofcontents
+
+\chapter{Introduction}
+Your introduction goes here.
+
+\section{Section 1}
+Content for section 1.
+
+\subsection{Subsection 1.1}
+Details about subsection 1.1.
+
+\end{document}

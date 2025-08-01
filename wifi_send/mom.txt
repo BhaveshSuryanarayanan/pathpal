@@ -1,0 +1,3 @@
+Mayank - I found out how do I reduced the delay by using delay
+Sripathi - MQTT and vibrator testing
+Yagnik - integrating codes and benchmark, also include switch
